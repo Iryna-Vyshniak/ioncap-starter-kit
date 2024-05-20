@@ -1,0 +1,1 @@
+export const INTRO_KEY = 'intro-seen';
