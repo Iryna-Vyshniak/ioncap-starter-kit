@@ -13,7 +13,11 @@ import {
   useIonLoading,
   useIonRouter,
 } from '@ionic/react';
-import { logInOutline, personCircleOutline, readerOutline } from 'ionicons/icons';
+import {
+  logInOutline,
+  personCircleOutline,
+  readerOutline,
+} from 'ionicons/icons';
 import { Preferences } from '@capacitor/preferences';
 
 import Logo from '../assets/colorful.png';
@@ -40,7 +44,7 @@ const Login: React.FC = () => {
 
     setTimeout(async () => {
       dismiss();
-      router.push('home', 'root');
+      router.push('app', 'root');
     }, 2000);
   };
 
