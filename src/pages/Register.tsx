@@ -9,9 +9,9 @@ const router = useIonRouter();
 
     const doRegister = (e: any) => {
         e.preventDefault();
-        console.log('register');
         router.goBack();
       };
+      
       return (
         <IonPage>
           <IonHeader>
