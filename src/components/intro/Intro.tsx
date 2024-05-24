@@ -32,8 +32,10 @@ const Intro: React.FC<ContainerProps> = ({ onFinish }) => {
           <IonGrid fixed>
             <IonRow class="ion-justify-content-center">
               <IonCol size="12" sizeMd="8" sizeLg="6" sizeXl="4">
-                {' '}
-                <img src={img} alt={desc} />
+                <div className="image ion-justify-content-center">
+                  <img src={img} alt={desc} width={1200} />
+                </div>
+
                 <IonText>
                   <h3>{desc}</h3>
                 </IonText>

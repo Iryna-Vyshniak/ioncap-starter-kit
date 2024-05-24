@@ -79,7 +79,7 @@ const Login: React.FC = () => {
                 <IonCol size="12" sizeMd="8" sizeLg="6" sizeXl="4">
                   {' '}
                   <div className="ion-text-center ion-padding">
-                    <img src={Logo} alt="FCC logo" width="50%" />
+                    <img src={Logo} alt="FCC logo" width={1200} />
                   </div>
                 </IonCol>
               </IonRow>
