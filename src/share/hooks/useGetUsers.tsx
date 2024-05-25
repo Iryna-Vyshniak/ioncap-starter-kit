@@ -7,24 +7,24 @@ export const useGetUsers = () => {
 
   useIonViewWillEnter(() => {
     const loadUsers = async () => {
-      const users = await getUsers();
+      const users = await fetchUsers();
       setUsers(users);
       setLoading(false);
     };
     loadUsers();
   });
 
-  const getUsers = async () => {
-    const data = await fetch('https://randomuser.me/api?results=10');
-    if (!data.ok) {
+  const fetchUsers = async () => {
+    const response = await fetch('https://randomuser.me/api?results=10');
+    if (!response.ok) {
       throw new Error('Network response was not ok.');
     }
-    const users = await data.json();
-    if (users.error) {
-      console.error('Error from API: ', users.error);
+    const data = await response.json();
+    if (data.error) {
+      console.error('Error from API: ', data.error);
       return;
     }
-    return users.results;
+    return data.results;
   };
 
   return { loading, users, setUsers };
