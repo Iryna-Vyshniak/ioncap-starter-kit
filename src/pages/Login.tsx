@@ -8,6 +8,7 @@ import {
   IonGrid,
   IonHeader,
   IonIcon,
+  IonImg,
   IonInput,
   IonPage,
   IonRow,
@@ -79,7 +80,7 @@ const Login: React.FC = () => {
                 <IonCol size="12" sizeMd="8" sizeLg="6" sizeXl="4">
                   {' '}
                   <div className="ion-text-center ion-padding">
-                    <img src={Logo} alt="FCC logo" width={1200} />
+                    <IonImg src={Logo} alt="FCC logo" />
                   </div>
                 </IonCol>
               </IonRow>

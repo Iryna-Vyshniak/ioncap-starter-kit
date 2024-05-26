@@ -18,9 +18,14 @@
   text-align: center;
 }
 
-.image {
-  width: 100%;
+.image-container {
   height: 60vh;
+  overflow: hidden;
+}
+
+.image-container ion-img {
+  height: 100%;
+  width: 100%;
   object-fit: contain;
   object-position: center;
 }

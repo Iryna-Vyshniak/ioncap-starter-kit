@@ -6,6 +6,7 @@ import {
   IonContent,
   IonGrid,
   IonHeader,
+  IonImg,
   IonPage,
   IonRow,
   IonText,
@@ -32,8 +33,8 @@ const Intro: React.FC<ContainerProps> = ({ onFinish }) => {
           <IonGrid fixed>
             <IonRow class="ion-justify-content-center">
               <IonCol size="12" sizeMd="8" sizeLg="6" sizeXl="4">
-                <div className="image ion-justify-content-center">
-                  <img src={img} alt={desc} width={1200} />
+                <div className="image-container ion-justify-content-center">
+                  <IonImg src={img} alt={desc} />
                 </div>
 
                 <IonText>
