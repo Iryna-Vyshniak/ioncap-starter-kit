@@ -27,5 +27,5 @@ export const useGetUsers = () => {
     return data.results;
   };
 
-  return { loading, users, setUsers };
+  return { loading, users, setUsers, fetchUsers };
 };
