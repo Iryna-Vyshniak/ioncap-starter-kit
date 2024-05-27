@@ -4,37 +4,70 @@ import {
   IonCardContent,
   IonChip,
   IonContent,
+  IonIcon,
   IonImg,
   IonItem,
+  IonItemOption,
+  IonItemOptions,
+  IonItemSliding,
   IonLabel,
 } from '@ionic/react';
-import React from 'react';
+import React, { useState } from 'react';
 
-import { UserListProps } from '../../share/types';
+import { User, UserListProps } from '../../share/types';
+import UserModal from './UserModal';
+import { archive, heartOutline, trash } from 'ionicons/icons';
 
-const UsersList: React.FC<UserListProps> = ({ users }) => {
+const UsersList: React.FC<UserListProps> = ({ users, presentingElement }) => {
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <IonContent className="ion-padding">
-      {users.map(
-        ({ picture, name: { title, first, last }, email, nat }, idx) => (
-          <IonCard key={idx}>
-            <IonCardContent className="ion-no-padding">
+      {users.map((user, idx) => (
+        <IonCard
+          key={idx}
+          onClick={() => {
+            setSelectedUser(user);
+            setIsOpen(true);
+          }}
+        >
+          <IonCardContent className="ion-no-padding">
+            <IonItemSliding>
+              <IonItemOptions side="start">
+                <IonItemOption color={'success'}>
+                  <IonIcon slot="icon-only" icon={archive} />
+                </IonItemOption>
+              </IonItemOptions>
               <IonItem lines="none">
                 <IonAvatar slot="start">
-                  <IonImg src={picture.thumbnail} />
+                  <IonImg src={user.picture.thumbnail} />
                 </IonAvatar>
                 <IonLabel>
-                  {title} {first} {last}
-                  <p>{email}</p>
+                  {user.name.title} {user.name.first} {user.name.last}
+                  <p>{user.email}</p>
                 </IonLabel>
                 <IonChip slot="end" color={'secondary'}>
-                  {nat}
+                  {user.nat}
                 </IonChip>
               </IonItem>
-            </IonCardContent>
-          </IonCard>
-        )
-      )}
+              <IonItemOptions side="end">
+                <IonItemOption color={'secondary'}>
+                  <IonIcon slot="icon-only" icon={heartOutline} />
+                </IonItemOption>
+                <IonItemOption color={'danger'}>
+                  <IonIcon slot="icon-only" icon={trash} />
+                </IonItemOption>
+              </IonItemOptions>
+            </IonItemSliding>
+          </IonCardContent>
+        </IonCard>
+      ))}
+      <UserModal
+        selectedUser={selectedUser}
+        setSelectedUser={setSelectedUser}
+        presentingElement={presentingElement}
+      />
     </IonContent>
   );
 };
