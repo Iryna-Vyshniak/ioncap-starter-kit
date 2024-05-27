@@ -1,0 +1,28 @@
+ion-datetime {
+  --background: #cce1e8d1;
+  --background-rgb: 216, 245, 254;
+
+  border-radius: 16px;
+  box-shadow: rgba(var(--ion-color-light-rgb), 0.3) 0px 10px 15px -3px;
+}
+
+.datetime-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container ion-button {
+  --color: #fff;
+
+  --background-hover: #8496a2;
+  --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+
+  --background: #3f5076;
+}
