@@ -9,7 +9,7 @@ import {
   IonItem,
   IonLabel,
   IonModal,
-  IonPage,
+  IonDatetime,
   IonSegment,
   IonSegmentButton,
   IonTitle,
@@ -91,6 +91,11 @@ const UserModal: React.FC<UserModalProps> = ({
               </IonCardContent>
             </IonCard>
           )}
+          {activeSegment === 'calendar' && (
+            <div className="datetime-container">
+              <IonDatetime firstDayOfWeek={1} />
+            </div>
+          )}
         </IonContent>
       </IonModal>
       <IonModal
@@ -106,15 +111,10 @@ const UserModal: React.FC<UserModalProps> = ({
                 Close
               </IonButton>
             </IonButtons>
-            <IonTitle>
-              {' '}
-              {selectedUser?.name.title} {selectedUser?.name.last}
-            </IonTitle>
+            <IonTitle>Another modal with fab</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding">
-          <IonImg src={selectedUser?.picture.large} />
-        </IonContent>
+        <IonContent className="ion-padding">Here is content</IonContent>
       </IonModal>
     </>
   );
