@@ -20,7 +20,6 @@ import { archive, heartOutline, trash } from 'ionicons/icons';
 
 const UsersList: React.FC<UserListProps> = ({ users, presentingElement }) => {
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <IonContent className="ion-padding">
@@ -29,7 +28,6 @@ const UsersList: React.FC<UserListProps> = ({ users, presentingElement }) => {
           key={idx}
           onClick={() => {
             setSelectedUser(user);
-            setIsOpen(true);
           }}
         >
           <IonCardContent className="ion-no-padding">

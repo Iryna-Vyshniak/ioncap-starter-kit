@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   IonButton,
   IonButtons,
   IonContent,
+  IonFab,
+  IonFabButton,
   IonHeader,
   IonIcon,
   IonMenuButton,
@@ -14,7 +16,7 @@ import {
   IonToolbar,
   RefresherEventDetail,
 } from '@ionic/react';
-import { chevronDownCircleOutline, trashBinOutline } from 'ionicons/icons';
+import { add, chevronDownCircleOutline, trashBinOutline } from 'ionicons/icons';
 
 import './List.css';
 
@@ -25,9 +27,16 @@ import UsersList from '../../components/users/UsersList';
 import UsersSkeleton from '../../components/users/UsersSkeleton';
 
 const List: React.FC = () => {
+  const [presentingElement, setPresentingElement] =
+    useState<HTMLElement | null>(null);
+
   const page = useRef(null);
   const { users, setUsers, fetchUsers, loading } = useGetUsers();
   const { clearList } = useClearList();
+
+  useEffect(() => {
+    setPresentingElement(page.current);
+  }, []);
 
   const handleRefresh = async (event: CustomEvent<RefresherEventDetail>) => {
     const data = await fetchUsers();
@@ -68,8 +77,16 @@ const List: React.FC = () => {
           />
         </IonRefresher>
         {loading && <UsersSkeleton />}
-        {!loading && <UsersList users={users} />}
+        {!loading && (
+          <UsersList users={users} presentingElement={presentingElement} />
+        )}
       </IonContent>
+
+      <IonFab vertical="bottom" horizontal="end" slot="fixed">
+        <IonFabButton id="card-modal">
+          <IonIcon icon={add}></IonIcon>
+        </IonFabButton>
+      </IonFab>
     </IonPage>
   );
 };
