@@ -23,7 +23,7 @@ import List from './List/List';
 const Menu: React.FC = () => {
   return (
     <IonPage>
-      <IonSplitPane contentId="main">
+      <IonSplitPane contentId="main" when="sm">
         <IonMenu contentId="main">
           <IonHeader>
             <IonToolbar color={'secondary'}>
@@ -31,7 +31,7 @@ const Menu: React.FC = () => {
             </IonToolbar>
           </IonHeader>
 
-          <IonContent fullscreen>
+          <IonContent fullscreen color={'light'}>
             {menuPaths.map(({ id, name, url, icon }) => (
               <IonMenuToggle key={id} autoHide={false}>
                 <IonItem detail={true} routerLink={url} routerDirection="none">

@@ -7,22 +7,21 @@ import {
   IonTabButton,
   IonTabs,
 } from '@ionic/react';
-import { ellipse, cameraOutline } from 'ionicons/icons';
+import { appsOutline, cameraOutline } from 'ionicons/icons';
 import { Redirect, Route } from 'react-router';
+
 import Tab1 from './Tab1';
 import Tab2 from './Tab2';
 
 const Settings: React.FC = () => {
   return (
     <IonTabs>
-      <IonTabBar slot="bottom">
+      <IonTabBar slot="bottom" color={'success'}>
         <IonTabButton tab="tab1" href="/app/settings/tab1">
           <IonIcon icon={cameraOutline} />
-          <IonLabel>Image</IonLabel>
         </IonTabButton>
         <IonTabButton tab="tab2" href="/app/settings/tab2">
-          <IonIcon icon={ellipse} />
-          <IonLabel>Tab2</IonLabel>
+          <IonIcon icon={appsOutline} />
         </IonTabButton>
       </IonTabBar>
 
