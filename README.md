@@ -1,14 +1,24 @@
 # ioncap-starter-kit
 
-$ ionic serve
-$ ionic build
+Studying how to use Ionic React and Capacitor to build native mobile
+applications.
 
-$ ionic cap add ios
-$ npx cap open ios
+- $ ionic serve
+- $ ionic build
 
-$ ionic cap add android
-$ npx cap open android
+- $ ionic cap add ios
+- $ ionic cap add android
 
-$ ionic cap sync
-$ ionic cap run android --livereload --external --public-host=192.168.0.183
-$ ionic cap run ios --livereload --external --public-host=192.168.0.183
+- $ ionic cap copy
+
+- $ npx cap open ios
+- $ npx cap open android
+
+- $ ionic cap sync
+
+- // for ANDROID
+- $ ionic cap run android -l --external
+
+- // for IOS
+- $ ionic cap run ios -l --external
+
